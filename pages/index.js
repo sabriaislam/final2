@@ -1,7 +1,11 @@
 export default function Home() {
   return (
     <div>
-      <h1>App Working?</h1>
+      <h1>Kiki with Us</h1>
+      <div>
+        <button>Login</button>
+        <button>Create Account</button>
+      </div>
     </div>
   );
 }
