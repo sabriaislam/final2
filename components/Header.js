@@ -1,5 +1,6 @@
-import { auth } from "firebase/auth";
+import { auth } from ".././firebase";
 import { useRouter } from "next/router";
+import { signOut } from "firebase/auth";
 
 export default function Header() {
     const router = useRouter();
@@ -12,6 +13,7 @@ export default function Header() {
         console.error("Error logging out:", error.message);
       }
     };
+
     const goToCreatePost = () => {
         router.push("/createPost");
     };
@@ -20,9 +22,16 @@ export default function Header() {
     router.push("/profile");
     };
 
+    const goToDashboard = () => {
+    router.push('/dashboard')
+    }
+
     return(
         <div>
         <div>
+            <button onClick={goToDashboard}>
+                Dashboard
+            </button>
             <button onClick={goToCreatePost}>
                 Create Post
             </button>
