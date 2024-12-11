@@ -1,0 +1,85 @@
+
+.logo{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.logoWrapper {
+    padding: 20px 0px 20px 0px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+.logo:hover {
+    opacity: 80%; 
+    transform: scale(0.95);
+}
+
+.loginContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 50vh;
+    font-family: w95fa; 
+}
+
+.loginForm {
+    padding: 20px 30px;
+    width: 100%;
+    max-width: 400px;
+    background-color: rgb(235, 225, 213);    
+    font-family: w95fa; 
+    border-top: 3px solid #d3cbbd; 
+    border-left: 3px solid #d3cbbd; 
+    color: #2e3a34;
+}
+
+.loginTitle {
+    font-size: 24px;
+    margin-bottom: 20px;
+    text-align: center;
+    font-family: w95fa; 
+}
+
+.loginInput {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    font-size: 16px;
+    font-family: w95fa; 
+}
+
+.button {
+    display: block;
+    width: 100%;
+    margin: 0.5em auto;
+    align-items: center;
+    padding: 0.25em 0.5em 0.25em 0.5em;
+    justify-content: center;
+    border-top: 3px solid #d3cbbd; 
+    border-left: 3px solid #d3cbbd; 
+    color: #2e3a34;
+    font-family: w95fa; 
+    font-size: 16px; 
+    cursor: pointer; 
+}
+
+.text {
+margin-top: 15px;
+text-align: center;
+font-size: 14px;
+}
+
+/* Link styling for navigation */
+.loginLink {
+color: #b82f2f;
+text-decoration: none;
+transition: text-decoration 0.3s ease;
+}
+
+.loginLink:hover {
+text-decoration: underline;
+}

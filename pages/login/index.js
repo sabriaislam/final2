@@ -3,6 +3,8 @@ import { useRouter } from "next/router";
 import Link from "next/link";
 import { signInWithEmailAndPassword } from "firebase/auth";
 import { auth } from "../../firebase";
+import styles from "../../styles/login.module.css";
+import Image from "next/image";
 
 
 export default function Login() {
@@ -21,13 +23,25 @@ export default function Login() {
       setError("Invalid email or password. Please try again.");
     }
   };
-
   return (
-    <div>
-      <form onSubmit={handleLogin}>
-        <h2>Log In</h2>
+    <div className={styles.pageWrapper}>
+        <div className={styles.logoWrapper}>
+            <Link href="/">
+                <Image
+                src="/images/cat-image.png"
+                alt="Logo"
+                width={150}
+                height={150}
+                className={styles.logo}
+                />
+            </Link>
+        </div>
+    <div className={styles.loginContainer}>
+      <form className={styles.loginForm} onSubmit={handleLogin}>
+        <h2 className={styles.loginTitle}>Log In</h2>
         <input
           type="email"
+          className={styles.loginInput}
           placeholder="Email"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
@@ -35,19 +49,24 @@ export default function Login() {
         />
         <input
           type="password"
+          className={styles.loginInput}
           placeholder="Password"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
           required
         />
-        <button type="submit">Log In</button>
-        <p>
+        <button className={styles.button} type="submit">
+          Log In
+        </button>
+        <p className={styles.text}>
           Don't have an account?{" "}
-            <Link href="/createUser">
-                Create one here.
-            </Link>
+          <Link href="/createUser" className={styles.loginLink}>
+            Create one here.
+          </Link>
         </p>
       </form>
     </div>
+    </div>
   );
+  
 }

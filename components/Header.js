@@ -1,6 +1,7 @@
 import { auth } from ".././firebase";
 import { useRouter } from "next/router";
 import { signOut } from "firebase/auth";
+import Link from "next/link";
 
 export default function Header() {
     const router = useRouter();
@@ -14,33 +15,14 @@ export default function Header() {
       }
     };
 
-    const goToCreatePost = () => {
-        router.push("/createPost");
-    };
-    
-    const goToProfile = () => {
-    router.push("/profile");
-    };
-
-    const goToDashboard = () => {
-    router.push('/dashboard')
-    }
-
     return(
         <div>
         <div>
-            <button onClick={goToDashboard}>
-                Dashboard
-            </button>
-            <button onClick={goToCreatePost}>
-                Create Post
-            </button>
-            <button onClick={goToProfile}>
-                Profile
-            </button>
-            <button onClick={handleSignOut}>
-                Sign Out
-            </button>
+            <ul></ul>
+            <Link href="/dashboard">Dashboard</Link>
+            <Link href="/createUser">Create User</Link>
+            <Link href="/profile">Profile</Link>
+            <Link href="/" onClick={handleSignOut}>Sign Out</Link>
         </div>
         </div>
     )

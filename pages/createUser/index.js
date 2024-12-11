@@ -3,6 +3,9 @@ import { auth, db } from "../../firebase";
 import { createUserWithEmailAndPassword } from "firebase/auth";
 import { doc, setDoc } from "firebase/firestore";
 import { useRouter } from "next/router";
+import styles from "../../styles/createUser.module.css"
+import Link from "next/link";
+import Image from "next/image";
 
 export default function CreateUser() {
   const [email, setEmail] = useState("");
@@ -32,12 +35,25 @@ export default function CreateUser() {
   };
 
   return (
-    <div>
-      <form onSubmit={handleSignUp}>
-        <h1>Create Account</h1>
-        {error && <p style={{ color: "red" }}>{error}</p>} {/* Display error if any */}
+    <div className={styles.pageWrapper}>
+    <div className={styles.logoWrapper}>
+      <Link href="/">
+        <Image
+          src="/images/cat-image.png"
+          alt="Logo"
+          width={150}
+          height={150}
+          className={styles.logo}
+        />
+      </Link>
+    </div>
+    <div className={styles.createAccountContainer}>
+      <form className={styles.createAccountForm} onSubmit={handleSignUp}>
+        <h1 className={styles.createAccountTitle}>Create Account</h1>
+        {error && <p className={styles.errorText}>{error}</p>} {/* Display error if any */}
         <input
           type="text"
+          className={styles.createAccountInput}
           placeholder="Display Name"
           value={displayName}
           onChange={(e) => setDisplayName(e.target.value)}
@@ -45,6 +61,7 @@ export default function CreateUser() {
         />
         <input
           type="email"
+          className={styles.createAccountInput}
           placeholder="Email"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
@@ -52,13 +69,18 @@ export default function CreateUser() {
         />
         <input
           type="password"
+          className={styles.createAccountInput}
           placeholder="Password"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
           required
         />
-        <button type="submit">Sign Up</button>
+        <button className={styles.button} type="submit">
+          Sign Up
+        </button>
       </form>
     </div>
+  </div>
+  
   );
 }
