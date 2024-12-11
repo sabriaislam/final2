@@ -1,17 +1,24 @@
 import { useState } from "react";
+import { useRouter } from "next/router";
+import Link from "next/link";
+import { signInWithEmailAndPassword } from "firebase/auth";
+import { auth } from "../../firebase";
+
 
 export default function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [error, setError] = useState(null);
+  const router = useRouter();
 
   const handleLogin = async (e) => {
     e.preventDefault();
     try {
-      // Placeholder for login functionality
-      console.log("Logging in with:", { email, password });
+      await signInWithEmailAndPassword(auth, email, password);
+      router.push("/dashboard");
     } catch (error) {
-      console.error("Error logging in:", error.message);
-      alert("Invalid email or password. Please try again.");
+      console.error("Login error:", error.message);
+      setError("Invalid email or password. Please try again.");
     }
   };
 
@@ -36,7 +43,9 @@ export default function Login() {
         <button type="submit">Log In</button>
         <p>
           Don't have an account?{" "}
-          <a href="#">Create one here</a>.
+            <Link href="/createUser">
+                Create one here.
+            </Link>
         </p>
       </form>
     </div>

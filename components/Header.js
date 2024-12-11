@@ -1,24 +1,38 @@
+import { auth } from "firebase/auth";
+import { useRouter } from "next/router";
+
 export default function Header() {
-    const handleIn = async () => {
+    const router = useRouter();
+  
+    const handleSignOut = async () => {
       try {
-        console.log("Logging out...");
+        await signOut(auth);
+        router.push("/");
       } catch (error) {
         console.error("Error logging out:", error.message);
       }
     };
-  
-    return (
-      <header>
+    const goToCreatePost = () => {
+        router.push("/createPost");
+    };
+    
+    const goToProfile = () => {
+    router.push("/profile");
+    };
+
+    return(
         <div>
-          <h1>Kiki with Us</h1>
+        <div>
+            <button onClick={goToCreatePost}>
+                Create Post
+            </button>
+            <button onClick={goToProfile}>
+                Profile
+            </button>
+            <button onClick={handleSignOut}>
+                Sign Out
+            </button>
         </div>
-        <nav>
-          <h1>Dashboard</h1>
-          <button>Create Post</button>
-          <button>Profile</button>
-          <button onClick={handleIn}>Log In</button>
-        </nav>
-      </header>
-    );
-  }
-  
+        </div>
+    )
+}
