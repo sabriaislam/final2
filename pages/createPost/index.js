@@ -3,7 +3,8 @@ import { useRouter } from "next/router";
 import { auth, db } from "../../firebase"; 
 import { collection, addDoc, serverTimestamp, doc, getDoc } from "firebase/firestore";
 import { onAuthStateChanged } from "firebase/auth";
-import Header from "../../components/header"
+import Header from "../../components/header";
+import styles from "../../styles/createpost.module.css"
 
 export default function CreatePost() {
   const [formData, setFormData] = useState({ title: "", content: "" });
@@ -11,7 +12,6 @@ export default function CreatePost() {
   const [user, setUser] = useState(null);
   const router = useRouter();
 
-  // Check authentication status and redirect if not logged in
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
       if (currentUser) {
@@ -38,7 +38,6 @@ export default function CreatePost() {
     }
 
     try {
-      // Fetch the displayName from Firestore's users collection
       const userDoc = await getDoc(doc(db, "users", user.uid));
       const userData = userDoc.exists() ? userDoc.data() : null;
 
@@ -46,7 +45,6 @@ export default function CreatePost() {
         throw new Error("User displayName not found in Firestore.");
       }
 
-      // Reference the posts collection and add the post
       const postsRef = collection(db, "posts");
       await addDoc(postsRef, {
         title: formData.title || "Untitled",
@@ -65,28 +63,37 @@ export default function CreatePost() {
   };
 
   return (
-    <div>
-        <Header/>
-      <h1>Create Post</h1>
-      {error && <p style={{ color: "red" }}>{error}</p>}
+    <div><Header/>
+    <div className={styles.createPostCard}>
+    <div className={styles.createPostHeader}>Create Post</div>
+    <div className={styles.createPostContent}>
+      {error && <p className={styles.errorMessage}>{error}</p>}
       <form onSubmit={handleSubmit}>
-        <input
-          type="text"
-          name="title"
-          placeholder="Post Title"
-          value={formData.title}
-          onChange={handleInputChange}
-          required
-        />
-        <textarea
-          name="content"
-          placeholder="Post Content"
-          value={formData.content}
-          onChange={handleInputChange}
-          required
-        />
-        <button type="submit">Create Post</button>
+        <label className={styles.inputLabel}>
+          Post Title:
+          <input
+            type="text"
+            name="title"
+            value={formData.title}
+            onChange={handleInputChange}
+            required
+            className={styles.inputBox}
+          />
+        </label>
+        <label className={styles.inputLabel}>
+          Post Content:
+          <textarea
+            name="content"
+            value={formData.content}
+            onChange={handleInputChange}
+            required
+            className={styles.inputBox}
+          />
+        </label>
+        <button type="submit" className={styles.submitButton}>Create Post</button>
       </form>
     </div>
+  </div>
+  </div>
   );
 }

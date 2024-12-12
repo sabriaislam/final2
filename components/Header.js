@@ -32,7 +32,7 @@ export default function Header() {
                     />
                 </Link>
             </div>    
-            <li className={styles.title}>Dashboard</li>
+            <li className={styles.title}>Kiki with Us</li>
             <li className={styles.createPost}>
               <Link href="/createPost">Create Post</Link>
             </li>

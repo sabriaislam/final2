@@ -20,12 +20,39 @@
     padding: 10px;
 }
 
-.displayName, .email {
-    margin: 0;
+.displayName, .email, .field {
+    margin: 0 0 10px 0;
     font-size: 14px;
 }
 
-.displayName strong {
+.displayName strong, .email strong, .field strong {
     margin-right: 5px;
+    display: inline-block;
+    width: 100px;
+}
+
+.inputBox {
+    background-color: #fff;
+    border: 2px inset #dfdfdf;
+    box-shadow: inset 1px 1px 0 0 #888;
+    font-size: 14px;
+    padding: 3px 5px;
+    color: #000;
+    font-family: w95fa;
 }
   
+
+.button {
+    background-color: #959595;
+    color: #ffffff;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+    font-size: 14px;
+    margin-top: 10px;
+    font-family: w95fa;
+}
+
+.button:hover {
+    background-color: #808080;
+}
