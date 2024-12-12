@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { auth, db } from "../../firebase";
 import { doc, getDoc, updateDoc } from "firebase/firestore";
 import { onAuthStateChanged } from "firebase/auth";
-import Header from "@/components/header";
+import Header from "../../components/header";
 import styles from "../../styles/profile.module.css";
 
 export default function Profile() {

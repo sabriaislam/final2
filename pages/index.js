@@ -7,13 +7,13 @@ export default function Home() {
   return (
     <div className={styles.homescreenWrapper}>
       <h1 className={styles.h1}>Kiki with Us</h1>
-      <div>
+      <div className={styles.buttonWrapper}>
         <button className={styles.button} onClick={() => router.push("/login")}>Login</button>
         <button className={styles.button} onClick={() => router.push("/createUser")} >Create Account</button>
       </div>
       <div className={styles.imageWrapper}>
         <Image
-          src="/images/cat-image.png" // Path relative to the `public` directory
+          src="/images/cat-image.png" 
           alt="image of cat snuggling"
           layout="intrinsic"
           width={300} 
