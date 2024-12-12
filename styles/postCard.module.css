@@ -1,0 +1,50 @@
+.postContainer {
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 0 20px;
+  }
+  
+.postCard {
+    background-color: #e6e6e6;
+    border: 2px solid #000000;
+    box-shadow: 3px 3px 0 #000000;
+    padding: 15px;
+    margin-bottom: 20px;
+}
+
+.title {
+    background-color: #d4d4d4;
+    border: 1px solid #000000;
+    padding: 8px;
+    margin: 0 0 15px 0;
+    font-size: 16px;
+    font-weight: bold;
+}
+  
+.content {
+    background-color: #ffffff;
+    border: 1px solid #000000;
+    padding: 12px;
+    margin: 10px 0;
+    font-size: 14px;
+    line-height: 1.4;
+}
+
+.userInfo {
+    display: flex;
+    justify-content: space-between;
+    background-color: #d4d4d4;
+    border: 1px solid #000000;
+    padding: 8px;
+    margin-top: 10px;
+    font-size: 12px;
+}
+
+.userInfo span {
+    display: inline-block;
+}
+
+.userInfo strong {
+    margin-right: 5px;  
+}
+  

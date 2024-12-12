@@ -1,0 +1,60 @@
+.navbar {
+    background-color: #e6e6e6;
+    border: 2px solid #000000;
+    box-shadow: 3px 3px 0 #000000;
+    padding: 10px;
+    margin: 10px;
+    font-family: w95fa, Arial, sans-serif;
+  }
+  
+  .navbar ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  
+  .logoWrapper {
+    margin-right: auto;
+    padding: 8px;
+  }
+  
+  .logo {
+    display: block;
+  }
+  .logo:hover{
+    opacity: 80%;
+  }
+  
+  .title {
+    flex: 1;
+    text-align: center;
+    font-size: 16px;
+    font-weight: bold;
+    margin: 0 20px;
+  }
+  
+  .profile, .signOut, .createPost {
+    display: inline-block;
+    margin-left: 10px;
+  }
+  
+  .profile a, .signOut a, .createPost a{ 
+    color: #000000;
+    text-decoration: none;
+    font-size: 14px;
+    padding: 6px;
+    background-color: #ffffff;
+    border: 1px solid #000000;
+    box-shadow: 2px 2px 0 #000000;
+  }
+  
+  .profile a:hover, .signOut a:hover, .createPost a:hover{
+    background-color: var(--darkest);
+    color: #ffffff;
+    box-shadow: none;
+    transform: translate(2px, 2px);
+  }
+  

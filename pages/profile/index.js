@@ -3,6 +3,7 @@ import { auth, db } from "../../firebase";
 import { doc, getDoc } from "firebase/firestore";
 import { onAuthStateChanged } from "firebase/auth";
 import Header from "@/components/header";
+import styles from "../../styles/profile.module.css";
 
 export default function Profile() {
   const [user, setUser] = useState(null);
@@ -40,9 +41,15 @@ export default function Profile() {
   return (
     <div>
       <Header />
-      <h1>Profile</h1>
-      <p><strong>Email:</strong> {user.email}</p>
-      <p><strong>Display Name:</strong> {userData?.displayName || "N/A"}</p>
+    <div className={styles.profileCard}>
+    <div className={styles.profileHeader}>Profile Information</div>
+    <div className={styles.profileContent}>
+      <p className={styles.displayName}>
+        <strong>Name</strong> {userData?.displayName || "N/A"}
+      </p>
+      <p className={styles.email}><strong>Contact Me:</strong> {user.email}</p>
     </div>
+    </div>
+  </div>
   );
 }

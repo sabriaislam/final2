@@ -1,7 +1,7 @@
 import { auth, db } from "../../firebase";
 import withAuth from "../../components/withAuth";
 import { useEffect, useState } from "react";
-import { collection, getDocs, query, orderBy } from "firebase/firestore";
+import { collection, getDocs, query, orderBy , addDoc} from "firebase/firestore";
 import PostCard from "../../components/postCard";
 import Header from "../../components/header";
 
@@ -34,7 +34,6 @@ function Dashboard() {
     <div>
       <Header /> 
       <main>
-        <p>Welcome to your dashboard!</p>
         {loading ? (
           <p>Loading posts...</p>
         ) : posts.length > 0 ? (

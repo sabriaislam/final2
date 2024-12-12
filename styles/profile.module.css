@@ -1,0 +1,31 @@
+.profileCard {
+    background-color: #c0c0c0;
+    border: 2px solid #000000;
+    box-shadow: 3px 3px 0 #000000;
+    padding: 2px;
+    max-width: 300px;
+    margin: 20px auto;
+}
+
+.profileHeader {
+    background-color: #959595;
+    color: #ffffff;
+    padding: 4px;
+    font-weight: bold;
+}
+
+.profileContent {
+    background-color: #ffffff;
+    border: 1px solid #808080;
+    padding: 10px;
+}
+
+.displayName, .email {
+    margin: 0;
+    font-size: 14px;
+}
+
+.displayName strong {
+    margin-right: 5px;
+}
+  
